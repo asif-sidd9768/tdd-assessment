@@ -17,5 +17,10 @@ describe('String Calculator', () => {
   test('should return sum of multiple numbers', () => {
     expect(add('2,4,6,8')).toBe(20)
   })
+
+  test('should address new lines as delimeters', () => {
+    expect(add('1\n2,3')).toBe(6)
+  })
+  
   
 })
