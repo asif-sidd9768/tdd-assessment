@@ -16,6 +16,11 @@ const add = (str) => {
     .map((num) => parseInt(num, 10))
     .filter((num) => !isNaN(num));
 
+  const negativeNumbers = numbers.filter(num => num < 0)  
+  if(negativeNumbers.length > 0){
+    throw new Error('negative numbers not allowed ' + negativeNumbers.join(', '))
+  }
+
   // Calculate sum
   return numbers.reduce((sum, currNum) => sum + currNum, 0);
 }
