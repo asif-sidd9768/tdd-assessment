@@ -3,7 +3,7 @@ const add = (str) => {
   if(!str.includes(",")) return parseInt(str)
   
   const numbers = str.split(",").map(num => parseInt(num))
-  return numbers[0] + numbers[1]
+  return numbers.reduce((sum, currNum) => sum + parseInt(currNum), 0)
 }
 
 module.exports = add
