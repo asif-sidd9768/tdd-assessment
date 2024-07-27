@@ -10,5 +10,9 @@ describe('String Calculator', () => {
     expect(add('1')).toBe(1)
   })
   
+  test('should return addition of two numbers', () => {
+    expect(add('2,3')).toBe(5)
+  })
+  
   
 })
