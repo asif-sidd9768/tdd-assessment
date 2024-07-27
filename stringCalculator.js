@@ -1,15 +1,23 @@
 const add = (str) => {
-  if(str === "") return 0
-  if(str.length === 1) return parseInt(str)
-  
-  if(str.startsWith('//')){
-    const parts = str.split('\n')
-    const delimeter = parts[0][2]
-    str = parts[1].split(delimeter).join(',')
+  // Handle empty string
+  if (str === "") return 0;
+
+  // Check for custom delimiter
+  if (str.startsWith("//")) {
+    const [delimiterLine, numbersLine] = str.split("\n");
+    const delimiter = delimiterLine[2];
+    str = numbersLine.replace(new RegExp(delimiter, "g"), ",");
   }
 
-  const numbers = str.replace(/\n/g, ',').split(",").map(num => parseInt(num))
-  return numbers.reduce((sum, currNum) => sum + parseInt(currNum), 0)
+  // Split string into numbers and handle errors
+  const numbers = str
+    .replace(/\n/g, ",")
+    .split(",")
+    .map((num) => parseInt(num, 10))
+    .filter((num) => !isNaN(num));
+
+  // Calculate sum
+  return numbers.reduce((sum, currNum) => sum + currNum, 0);
 }
 
 module.exports = add
