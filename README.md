@@ -69,3 +69,10 @@ This project implements a simple String Calculator using Test-Driven Development
    ```bash
    git clone https://github.com/asif-sidd9768/tdd-assessment
    cd tdd-assessment
+2. **Install dependencies**
+   ```bash
+   npm install
+4. **Run the tests**
+   ```bash
+   npm run test
+   
