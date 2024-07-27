@@ -35,7 +35,7 @@ describe('String Calculator', () => {
   })
 
   test('should handle delimeters of any length', () => {
-    expect(add('“//[***]\n1***2***3')).toBe(6)
+    expect(add('//[***]\n1***2***3')).toBe(6)
   })
   
   

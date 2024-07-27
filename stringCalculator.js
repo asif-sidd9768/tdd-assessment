@@ -5,9 +5,11 @@ const add = (str) => {
   // Check for custom delimiter
   if (str.startsWith("//")) {
     const [delimiterLine, numbersLine] = str.split("\n");
-    const delimiter = delimiterLine[2];
+    const delimiter = delimiterLine.substring(2, delimiterLine.length); // Extract delimiter
     str = numbersLine.replace(new RegExp(delimiter, "g"), ",");
   }
+
+  console.log(str)
 
   // Split string into numbers and handle errors
   const numbers = str
