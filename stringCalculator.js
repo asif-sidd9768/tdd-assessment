@@ -5,7 +5,7 @@ const add = (str) => {
   // Check for custom delimiter
   if (str.startsWith("//")) {
     const [delimiterLine, numbersLine] = str.split("\n");
-    const delimiter = delimiterLine.substring(2, delimiterLine.length); // Extract delimiter
+    const delimiter = delimiterLine.substring(2, delimiterLine.length).split("]["); // Extract delimiter
     str = numbersLine.replace(new RegExp(delimiter, "g"), ",");
   }
 
