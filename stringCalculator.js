@@ -9,8 +9,6 @@ const add = (str) => {
     str = numbersLine.replace(new RegExp(delimiter, "g"), ",");
   }
 
-  console.log(str)
-
   // Split string into numbers and handle errors
   const numbers = str
     .replace(/\n/g, ",")
@@ -18,12 +16,13 @@ const add = (str) => {
     .map((num) => parseInt(num, 10))
     .filter((num) => !isNaN(num) && num <= 1000);
 
+  // Check for negative numbers and throw error if there's any
   const negativeNumbers = numbers.filter(num => num < 0)  
   if(negativeNumbers.length > 0){
     throw new Error('negative numbers not allowed ' + negativeNumbers.join(', '))
   }
 
-  // Calculate sum
+  // Calculate sum and return
   return numbers.reduce((sum, currNum) => sum + currNum, 0);
 }
 
