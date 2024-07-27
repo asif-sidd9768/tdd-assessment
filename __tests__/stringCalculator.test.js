@@ -42,4 +42,8 @@ describe('String Calculator', () => {
     expect(add('//[*][%]\n1*2%3')).toBe(6)
   })
   
+  test('should handle delimeter with length longer than one char ', () => {
+    expect(add('//[**][%%%]\n1**2%3')).toBe(6)
+  })
+  
 })
