@@ -14,7 +14,7 @@ const add = (str) => {
     .replace(/\n/g, ",")
     .split(",")
     .map((num) => parseInt(num, 10))
-    .filter((num) => !isNaN(num));
+    .filter((num) => !isNaN(num) && num <= 1000);
 
   const negativeNumbers = numbers.filter(num => num < 0)  
   if(negativeNumbers.length > 0){
